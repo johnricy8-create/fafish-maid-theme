@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>DeepSeek 女仆鱼娘 · 1080×2400</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; width: 1080px; height: 2400px;
+    overflow: hidden; background: #04070F;
+    font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .scene { position: relative; width: 1080px; height: 2400px; overflow: hidden; }
+
+  /* ---------- 背景 ---------- */
+  .sea {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 900px at 50% 63%, rgba(77,107,254,.20), transparent 70%),
+      radial-gradient(760px 620px at 84% 16%, rgba(232,196,138,.10), transparent 72%),
+      radial-gradient(620px 520px at 6% 30%, rgba(99,230,255,.055), transparent 72%),
+      linear-gradient(180deg, #071026 0%, #08152F 52%, #04070F 100%);
+  }
+  .rays {
+    position: absolute; inset: -6% -10% 0;
+    background:
+      linear-gradient(108deg, transparent 32%, rgba(99,230,255,.045) 42%, transparent 50%),
+      linear-gradient(76deg, transparent 58%, rgba(232,196,138,.055) 68%, transparent 76%);
+  }
+  .porthole {
+    position: absolute; left: 50%; top: 1710px; width: 1000px; height: 1000px;
+    transform: translate(-50%,-50%); border-radius: 50%;
+    border: 16px solid #121E42;
+    box-shadow:
+      inset 0 0 140px rgba(77,107,254,.30),
+      inset 0 0 34px rgba(143,240,255,.20),
+      0 0 90px rgba(77,107,254,.12);
+  }
+  .porthole::before {
+    content: ""; position: absolute; inset: 13px; border-radius: 50%;
+    border: 2px solid rgba(143,240,255,.22);
+    background: radial-gradient(circle at 50% 42%, rgba(77,107,254,.24), rgba(7,16,38,.04) 62%, transparent 72%);
+  }
+  .porthole::after {
+    content: ""; position: absolute; inset: 28px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .rivet {
+    position: absolute; width: 15px; height: 15px; border-radius: 50%;
+    background: #2A3A66; box-shadow: inset 0 0 5px #000, 0 0 8px rgba(143,240,255,.16);
+  }
+  .floor {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 420px;
+    background: linear-gradient(180deg, transparent, rgba(2,4,10,.72) 55%, #02040A 100%);
+  }
+  .vignette {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(130% 92% at 50% 45%, transparent 52%, rgba(1,3,9,.58) 100%),
+      linear-gradient(180deg, rgba(1,3,9,.18), transparent 18%, transparent 82%, rgba(1,3,9,.35));
+  }
+
+  /* ---------- 气泡 ---------- */
+  .bubbles { position: absolute; inset: 0; overflow: hidden; }
+  .bubble {
+    position: absolute; border-radius: 50%;
+    border: 1.5px solid rgba(143,240,255,.28);
+    background: radial-gradient(circle at 34% 30%, rgba(143,240,255,.26), rgba(99,230,255,.03) 62%, transparent 72%);
+    animation: rise linear infinite;
+  }
+  .bubble::after {
+    content: ""; position: absolute; left: 24%; top: 20%;
+    width: 20%; height: 20%; border-radius: 50%; background: rgba(223,249,255,.55);
+  }
+  @keyframes rise {
+    0% { transform: translateY(40px) scale(.9); opacity: 0; }
+    12% { opacity: .8; }
+    82% { opacity: .45; }
+    100% { transform: translateY(-680px) scale(1.06); opacity: 0; }
+  }
+
+  /* ---------- 蒸汽 ---------- */
+  .steam {
+    position: absolute; left: 120px; top: 1820px; width: 320px; height: 380px;
+    z-index: 2; opacity: .8; filter: blur(3px);
+  }
+  .steam path { fill: none; stroke: rgba(246,241,231,.38); stroke-width: 7; stroke-linecap: round; }
+  .steam .s2 { stroke: rgba(169,200,255,.26); }
+  .steam .s3 { stroke: rgba(246,241,231,.18); }
+
+  /* ---------- 角色 ---------- */
+  .maid { position: absolute; z-index: 3; pointer-events: none; }
+  .lock-maid {
+    left: 50%; bottom: 76px; width: 900px; transform: translateX(-50%);
+    filter:
+      drop-shadow(0 0 34px rgba(99,230,255,.16))
+      drop-shadow(0 0 18px rgba(232,196,138,.10))
+      drop-shadow(0 34px 60px rgba(0,0,0,.55));
+  }
+  .contact-shadow {
+    position: absolute; left: 50%; bottom: 96px; width: 620px; height: 80px;
+    transform: translateX(-50%); border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,0,0,.55), transparent 70%);
+    filter: blur(16px); z-index: 2;
+  }
+
+  /* ---------- 锁屏 UI ---------- */
+  .status {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 6;
+    padding: 26px 48px 0; display: flex; justify-content: space-between; align-items: center;
+    color: #EAF0FF; font-size: 28px; letter-spacing: .5px; opacity: .82;
+  }
+  .status .right { display: flex; align-items: center; gap: 12px; }
+  .status svg { display: block; }
+
+  .clock {
+    position: absolute; left: 82px; top: 176px; z-index: 6;
+    font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    font-size: 174px; line-height: .9; font-weight: 200; letter-spacing: 0;
+    color: #F6F9FF; font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 54px rgba(99,230,255,.16);
+  }
+  .date {
+    position: absolute; left: 88px; top: 388px; z-index: 6;
+    font-size: 34px; letter-spacing: 7px; color: #DCE6FF; opacity: .72;
+  }
+  .weather {
+    position: absolute; left: 90px; top: 448px; z-index: 6;
+    font-size: 24px; letter-spacing: 4px; color: #A9C8FF; opacity: .55;
+  }
+  .notif {
+    position: absolute; left: 84px; top: 552px; width: 912px; height: 146px; z-index: 6;
+    border-radius: 38px; padding: 25px 30px;
+    background: rgba(8,14,30,.48); border: 1px solid rgba(120,150,255,.16);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    display: flex; align-items: center; gap: 24px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .notif .ico {
+    width: 78px; height: 78px; border-radius: 24px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 50% 45%, rgba(99,230,255,.34), rgba(77,107,254,.14));
+    border: 1px solid rgba(99,230,255,.30);
+    box-shadow: 0 0 26px rgba(99,230,255,.14);
+  }
+  .notif .t { font-size: 28px; color: #EAF0FF; letter-spacing: .5px; }
+  .notif .s { font-size: 23px; color: #93A4C9; margin-top: 8px; letter-spacing: .5px; }
+  .unlock {
+    position: absolute; left: 0; right: 0; bottom: 26px; z-index: 6;
+    text-align: center; font-size: 26px; letter-spacing: 7px; color: #CBD6F2; opacity: .58;
+    text-shadow: 0 2px 18px rgba(0,0,0,.65);
+  }
+  .unlock .bar {
+    width: 220px; height: 2px; margin: 0 auto 14px; border-radius: 2px;
+    background: linear-gradient(90deg, transparent, rgba(200,220,255,.45), transparent);
+  }
+  .unlock .chev {
+    display: block; margin: 8px auto 0; width: 14px; height: 14px;
+    border-left: 1px solid rgba(200,220,255,.45); border-top: 1px solid rgba(200,220,255,.45);
+    transform: rotate(45deg); animation: up 2.8s ease-in-out infinite;
+  }
+  @keyframes up {
+    0%,100% { transform: translateY(0) rotate(45deg); opacity: .3; }
+    50% { transform: translateY(-6px) rotate(45deg); opacity: .75; }
+  }
+
+  /* ---------- 桌面 ---------- */
+  .home-maid {
+    right: 14px; bottom: -90px; width: 640px;
+    filter:
+      drop-shadow(0 0 30px rgba(99,230,255,.14))
+      drop-shadow(0 30px 50px rgba(0,0,0,.5));
+  }
+  .home .porthole { left: 78%; top: 1800px; width: 880px; height: 880px; opacity: .8; }
+  .home .steam { display: none; }
+  .widget {
+    position: absolute; left: 78px; top: 150px; z-index: 6;
+  }
+  .widget .brand {
+    font-size: 18px; letter-spacing: 10px; color: #DCE6FF; opacity: .32;
+  }
+  .widget .wtime {
+    margin-top: 18px; font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    font-size: 92px; line-height: .9; font-weight: 200; color: #F2F6FF;
+    text-shadow: 0 0 34px rgba(99,230,255,.12);
+  }
+  .widget .wdate { margin-top: 14px; font-size: 25px; letter-spacing: 3px; color: #C3CFEC; opacity: .7; }
+  .widget .wtemp { margin-top: 8px; font-size: 21px; letter-spacing: 3px; color: #A9C8FF; opacity: .5; }
+
+  .grid {
+    position: absolute; left: 50%; top: 380px; transform: translateX(-50%);
+    width: 780px; z-index: 6;
+    display: grid; grid-template-columns: repeat(4, 132px); justify-content: space-between;
+    row-gap: 40px;
+  }
+  .appx { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .appx .ic {
+    width: 132px; height: 132px; border-radius: 38px;
+    background: linear-gradient(155deg, rgba(32,52,104,.94), rgba(9,16,36,.94));
+    border: 1px solid rgba(143,240,255,.16);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 30px rgba(0,0,0,.28);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 50px; color: #DCE6FF; opacity: .94;
+  }
+  .appx .lb { font-size: 22px; letter-spacing: .5px; color: #C3CFE9; opacity: .6; }
+
+  .dots {
+    position: absolute; left: 0; right: 0; bottom: 252px; z-index: 6;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(220,230,255,.24); }
+  .dots i.on { background: rgba(220,230,255,.7); }
+
+  .dock {
+    position: absolute; left: 24px; right: 24px; bottom: 36px; height: 184px; z-index: 7;
+    border-radius: 54px; background: rgba(10,16,32,.38);
+    border: 1px solid rgba(255,255,255,.07);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    display: flex; align-items: center; justify-content: space-around; padding: 0 36px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .dock .appx .ic { width: 128px; height: 128px; border-radius: 38px; }
+
+  /* ---------- 模式切换 ---------- */
+  .home, .home-ui { display: none; }
+  body.v-home .lock-maid,
+  body.v-home .lock-ui,
+  body.v-home .steam { display: none; }
+  body.v-home .home,
+  body.v-home .home-ui { display: block; }
+  body.v-home .sea {
+    background:
+      radial-gradient(900px 900px at 74% 70%, rgba(77,107,254,.18), transparent 70%),
+      radial-gradient(760px 620px at 12% 12%, rgba(232,196,138,.12), transparent 72%),
+      linear-gradient(180deg, #08122B 0%, #071026 52%, #04070F 100%);
+  }
+  body.no-ui .status,
+  body.no-ui .clock,
+  body.no-ui .date,
+  body.no-ui .weather,
+  body.no-ui .notif,
+  body.no-ui .unlock,
+  body.no-ui .widget,
+  body.no-ui .grid,
+  body.no-ui .dots,
+  body.no-ui .dock { display: none !important; }
+</style>
+</head>
+<body>
+<div class="scene" id="scene">
+  <div class="sea"></div>
+  <div class="rays"></div>
+
+  <div class="porthole">
+    <span class="rivet" style="left:50%;top:8px;transform:translateX(-50%)"></span>
+    <span class="rivet" style="right:60px;top:76px"></span>
+    <span class="rivet" style="right:8px;top:50%;transform:translateY(-50%)"></span>
+    <span class="rivet" style="right:60px;bottom:76px"></span>
+    <span class="rivet" style="left:50%;bottom:8px;transform:translateX(-50%)"></span>
+    <span class="rivet" style="left:60px;bottom:76px"></span>
+    <span class="rivet" style="left:8px;top:50%;transform:translateY(-50%)"></span>
+    <span class="rivet" style="left:60px;top:76px"></span>
+  </div>
+
+  <div class="bubbles">
+    <i class="bubble" style="left:118px;bottom:360px;width:26px;height:26px;animation-duration:18s;animation-delay:-3s"></i>
+    <i class="bubble" style="left:196px;bottom:760px;width:12px;height:12px;animation-duration:22s;animation-delay:-9s"></i>
+    <i class="bubble" style="left:940px;bottom:520px;width:20px;height:20px;animation-duration:16s;animation-delay:-6s"></i>
+    <i class="bubble" style="left:1002px;bottom:980px;width:10px;height:10px;animation-duration:24s;animation-delay:-14s"></i>
+    <i class="bubble" style="left:820px;bottom:1180px;width:34px;height:34px;animation-duration:20s;animation-delay:-2s"></i>
+    <i class="bubble" style="left:712px;bottom:1520px;width:14px;height:14px;animation-duration:26s;animation-delay:-18s"></i>
+    <i class="bubble" style="left:150px;bottom:1240px;width:18px;height:18px;animation-duration:21s;animation-delay:-11s"></i>
+    <i class="bubble" style="left:326px;bottom:1060px;width:9px;height:9px;animation-duration:25s;animation-delay:-7s"></i>
+  </div>
+
+  <div class="steam">
+    <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
+      <path d="M92 360 C58 306 128 286 94 232 C62 182 128 160 108 104" />
+      <path class="s2" d="M154 356 C124 310 184 288 156 240 C128 194 184 168 168 116" />
+      <path class="s3" d="M212 350 C190 312 238 292 216 250 C194 210 238 186 226 142" />
+    </svg>
+  </div>
+
+  <div class="contact-shadow"></div>
+  <img class="maid lock-maid" src="../assets/lock-maid.png" alt="">
+
+  <!-- 桌面角色 -->
+  <img class="maid home-maid home" src="../assets/home-maid.png" alt="">
+
+  <div class="floor"></div>
+  <div class="vignette"></div>
+
+  <!-- 状态栏 -->
+  <div class="status">
+    <span>09:41</span>
+    <span class="right">
+      <svg width="38" height="26" viewBox="0 0 14 10" fill="none"><rect x="0" y="6" width="2" height="4" rx="1" fill="#EAF0FF"/><rect x="4" y="4" width="2" height="6" rx="1" fill="#EAF0FF"/><rect x="8" y="2" width="2" height="8" rx="1" fill="#EAF0FF"/><rect x="12" y="0" width="2" height="10" rx="1" fill="#EAF0FF" opacity=".35"/></svg>
+      <svg width="36" height="26" viewBox="0 0 13 10" fill="none"><path d="M1 3.4a8 8 0 0 1 11 0" stroke="#EAF0FF" stroke-width="1.2" stroke-linecap="round"/><path d="M3.4 5.7a5 5 0 0 1 6.2 0" stroke="#EAF0FF" stroke-width="1.2" stroke-linecap="round"/><circle cx="6.5" cy="8.4" r="1" fill="#EAF0FF"/></svg>
+      <svg width="54" height="26" viewBox="0 0 20 10" fill="none"><rect x="0.5" y="0.5" width="16" height="9" rx="2.5" stroke="#EAF0FF" opacity=".6"/><rect x="2" y="2" width="12" height="6" rx="1.4" fill="#EAF0FF"/><rect x="18" y="3.2" width="1.6" height="3.6" rx=".8" fill="#EAF0FF" opacity=".5"/></svg>
+    </span>
+  </div>
+
+  <!-- 锁屏 UI -->
+  <div class="lock-ui">
+    <div class="clock">09:41</div>
+    <div class="date">10月25日 星期日</div>
+    <div class="weather">18° · 深海晴</div>
+    <div class="notif">
+      <div class="ico">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+          <path d="M4.4 14.4c0-4 3.6-6.6 7.5-6.2 3.8.4 6.1 3.3 4.6 6.3-1.5 3-7.2 3.3-9.4.7l-3 2 .9-3.7z" fill="#8FF0FF"/>
+          <circle cx="15.2" cy="10.8" r="1" fill="#071026"/>
+        </svg>
+      </div>
+      <div>
+        <div class="t">肥鱼女仆 · 已在岗</div>
+        <div class="s">今天也要深度思考哦。</div>
+      </div>
+    </div>
+    <div class="unlock">
+      <div class="bar"></div>
+      上滑解锁
+      <span class="chev"></span>
+    </div>
+  </div>
+
+  <!-- 桌面 UI -->
+  <div class="home-ui">
+    <div class="widget">
+      <div class="brand">DEEPSEEK</div>
+      <div class="wtime">09:41</div>
+      <div class="wdate">10月25日 星期日</div>
+      <div class="wtemp">18° · 深海晴</div>
+    </div>
+
+    <div class="grid">
+      <div class="appx"><div class="ic">◎</div><div class="lb">相机</div></div>
+      <div class="appx"><div class="ic">▣</div><div class="lb">图库</div></div>
+      <div class="appx"><div class="ic">⚙</div><div class="lb">设置</div></div>
+      <div class="appx"><div class="ic">✦</div><div class="lb">主题</div></div>
+      <div class="appx"><div class="ic">✉</div><div class="lb">邮件</div></div>
+      <div class="appx"><div class="ic">♪</div><div class="lb">音乐</div></div>
+      <div class="appx"><div class="ic">▦</div><div class="lb">日历</div></div>
+      <div class="appx"><div class="ic">☁</div><div class="lb">天气</div></div>
+      <div class="appx"><div class="ic">◎</div><div class="lb">浏览器</div></div>
+      <div class="appx"><div class="ic">✎</div><div class="lb">备忘录</div></div>
+      <div class="appx"><div class="ic">∑</div><div class="lb">计算器</div></div>
+      <div class="appx"><div class="ic">▤</div><div class="lb">文件</div></div>
+      <div class="appx"><div class="ic">◇</div><div class="lb">应用市场</div></div>
+      <div class="appx"><div class="ic">♥</div><div class="lb">运动健康</div></div>
+      <div class="appx"><div class="ic">▥</div><div class="lb">阅读</div></div>
+      <div class="appx"><div class="ic">▧</div><div class="lb">钱包</div></div>
+      <div class="appx"><div class="ic">◈</div><div class="lb">手机管家</div></div>
+      <div class="appx"><div class="ic">☁</div><div class="lb">云空间</div></div>
+      <div class="appx"><div class="ic">◷</div><div class="lb">时钟</div></div>
+      <div class="appx"><div class="ic">✥</div><div class="lb">指南针</div></div>
+    </div>
+
+    <div class="dots"><i class="on"></i><i></i><i></i></div>
+
+    <div class="dock">
+      <div class="appx"><div class="ic">✆</div></div>
+      <div class="appx"><div class="ic">✉</div></div>
+      <div class="appx"><div class="ic">◎</div></div>
+      <div class="appx"><div class="ic">◉</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const p = new URLSearchParams(location.search);
+  const v = p.get('v') || 'lock';
+  if (v === 'home') document.body.classList.add('v-home');
+  if (p.get('ui') === '0') document.body.classList.add('no-ui');
+</script>
+</body>
+</html>

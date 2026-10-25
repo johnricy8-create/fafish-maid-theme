@@ -1,0 +1,68 @@
+﻿深海女仆 · 大肥鱼 — 本地验收报告
+生成时间：2026-10-25 07:52:28
+结论：全部通过
+
+一、主题包
+文件：fatfish-maid-honor-x10.hwt
+大小：1647 KB
+SHA256：F63A877793442A9349A70BFC8110325AC428B32A4AD5DF970D2B36A65E133C4B
+ZIP：有效，8 个条目，description.xml 在根目录，路径使用 /
+description.xml：UTF-8 无 BOM，title-cn=深海女仆 · 大肥鱼，screen=FHD，version=11.1.0
+unlock/theme.xml：<item style="slide"/>（静态滑动锁屏）
+
+二、壁纸与预览
+锁屏壁纸：1080×2400，JPEG baseline，sRGB，4:4:4，无 alpha，277 KB
+桌面壁纸：1080×2400，JPEG baseline，sRGB，4:4:4，无 alpha，239 KB
+锁屏预览：1080×2400，JPEG baseline，sRGB，4:4:4，无 alpha，318 KB
+桌面预览：1080×2400，JPEG baseline，sRGB，4:4:4，无 alpha，324 KB
+封面：1080×1920，JPEG baseline，sRGB，4:4:4，无 alpha，234 KB
+
+三、校验明细
+PASS  HWT 能正常解压  (8 个文件)
+PASS  description.xml 在第一层
+PASS  unlock/theme.xml 存在
+PASS  description.xml 无 BOM
+PASS  中文主题名正确
+PASS  主题分辨率字段 FHD
+PASS  锁屏模式为 slide
+PASS  包内文件名全为 ASCII
+PASS  ZIP 条目使用正斜杠
+PASS  ZIP 第一层无多余文件夹
+PASS  锁屏壁纸 1080×2400  (1080×2400)
+PASS  锁屏壁纸 为 baseline JPEG  (progressive=false)
+PASS  锁屏壁纸 无 alpha / sRGB  (alpha=false, space=srgb)
+PASS  锁屏壁纸 < 1MB  (277 KB)
+PASS  桌面壁纸 1080×2400  (1080×2400)
+PASS  桌面壁纸 为 baseline JPEG  (progressive=false)
+PASS  桌面壁纸 无 alpha / sRGB  (alpha=false, space=srgb)
+PASS  桌面壁纸 < 1MB  (239 KB)
+PASS  锁屏预览 1080×2400  (1080×2400)
+PASS  锁屏预览 为 baseline JPEG  (progressive=false)
+PASS  锁屏预览 无 alpha / sRGB  (alpha=false, space=srgb)
+PASS  锁屏预览 < 1MB  (318 KB)
+PASS  桌面预览 1080×2400  (1080×2400)
+PASS  桌面预览 为 baseline JPEG  (progressive=false)
+PASS  桌面预览 无 alpha / sRGB  (alpha=false, space=srgb)
+PASS  桌面预览 < 1MB  (324 KB)
+PASS  封面 1080×1920  (1080×1920)
+PASS  封面 为 baseline JPEG  (progressive=false)
+PASS  封面 无 alpha / sRGB  (alpha=false, space=srgb)
+PASS  封面 < 1MB  (234 KB)
+PASS  主题包 < 10MB  (1647 KB)
+PASS  包内包含 8 个文件  (8)
+PASS  手机安装包内 HWT 与构建产物一致
+PASS  手机安装包内锁屏 JPG 与包内一致
+PASS  手机安装包内桌面 JPG 与包内一致
+
+四、兼容性与安装
+目标机：荣耀 X10，1080×2400，升降前摄无挖孔，侧边指纹。
+锁屏为系统滑动解锁 + 系统时钟，不含自定义时钟/图标。
+本地无法真机验证 HarmonyOS 主题引擎；若主题 App 不识别，用同目录 JPG 在图库设置。
+
+安装：
+1. 把 fatfish-maid-honor-x10.hwt 复制到 内部存储/Huawei/Themes/。
+2. 设置 → 应用和服务 → 应用管理 → 主题 → 存储 → 清除缓存，必要时强行停止。
+3. 主题 → 我的 → 我的主题，找到「深海女仆 · 大肥鱼」应用。
+4. 或在「混搭 / DIY」里只选锁屏和桌面壁纸。
+
+兜底：图库直接设置 lock-wallpaper-1080x2400.jpg 和 home-wallpaper-1080x2400.jpg。
